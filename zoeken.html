@@ -1,0 +1,74 @@
+<!doctype html>
+    <html class="no-js" lang="">
+
+    <head>
+      <meta charset="utf-8">
+      <title></title>
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <meta property="og:title" content="">
+      <meta property="og:type" content="">
+      <meta property="og:url" content="">
+      <meta property="og:image" content="">
+
+      <link rel="manifest" href="site.webmanifest">
+      <link rel="apple-touch-icon" href="icon.png">
+      <!-- Place favicon.ico in the root directory -->
+
+      <link rel="stylesheet" href="css/normalize.css">
+      <link rel="stylesheet" href="css/main.css">
+
+      <meta name="theme-color" content="#fafafa">
+      <script src="js/main.js"></script>
+    </head>
+
+<body>
+
+<!-- Add your site or application content here -->
+<script src="js/vendor/modernizr-3.11.2.min.js"></script>
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="index.html">Homepage</a>
+  <a href="#">Zoeken</a>
+  <a href="geschiedenis.html">Geschiedenis</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<div id="main">
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Zoeken</span>
+  <div>
+    <form>
+      <input type="radio" id="Handmatig" name="inputMethod" value="manual">
+      <label for="manual">Hamdmatig</label><br>
+      <input type="radio" id="Automatisch" name="inputMethod" value="automatic">
+      <label for="female">Automatisch</label><br>
+      <label for="product">Barcode:</label><br>
+      <input type="number" id="product" name="product"><br>
+      <input type="file" accept="image/*" capture="camera"><br>
+      <input type="submit" value="Submit" onclick="GetIngredient(product.value);">
+
+    </form>
+    Ab accusamus autem eaque in inventore neque nesciunt, non odio omnis pariatur quaerat quasi, quia quisquam
+    repudiandae ullam. Ab blanditiis eum ipsa iste itaque mollitia, nemo perspiciatis rerum similique voluptas
+  </div>
+</div>
+
+
+
+
+
+
+<!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+<!--<script>
+  window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+  ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
+</script>
+<script src="https://www.google-analytics.com/analytics.js" async></script>-->
+</body>
+
+</html>
