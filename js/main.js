@@ -37,3 +37,20 @@ function GetIngredient(theBarcode){
       }
 
 
+(() => {
+  document.getElementById("cameraInput").hidden = false;
+  document.getElementById("product").hidden = true;
+  document.getElementById("Automatisch").click();
+})();
+
+document.getElementById("Handmatig").addEventListener('change', ev => {
+  console.log('Handmatig!');
+  document.getElementById("cameraInput").hidden = true;
+  document.getElementById("product").hidden = false;
+});
+
+document.getElementById("Automatisch").addEventListener('change', ev => {
+  console.log('Automatisch!');
+  document.getElementById("cameraInput").hidden = false;
+  document.getElementById("product").hidden = true;
+});
