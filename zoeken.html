@@ -43,11 +43,13 @@
 </div>
 
 <div id="main">
-  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Zoeken</span>
+  <div id="titelding">
+  <span style="font-size:30px;cursor:pointer;color:#373a40" onclick="openNav()">&#9776; Zoeken</span>
+  </div>
   <div>
     <!-- <form> -->
       <input type="radio" id="Handmatig" name="inputMethod" value="manual">
-      <label for="manual">Hamdmatig</label><br>
+      <label for="manual">Handmatig</label>
       <input type="radio" id="Automatisch" name="inputMethod" value="automatic">
       <label for="female">Automatisch</label><br>
       <label for="product">Barcode:</label><br>
@@ -55,7 +57,7 @@
       <input type="file" id="cameraInput" accept="image/*" capture="camera"><br>
       <div id="reader"></div>
       <!-- <input type="submit" value="Submit" onclick="GetIngredient(product.value);"> -->
-      <button onclick="getProduct(product.value);">Submit</button>
+      <button onclick="getProduct(product.value);">Submit ingedient</button>
 
     <!-- </form> -->
   </div>

@@ -1,10 +1,9 @@
 {
-  "name": " ",
+  "name": "ahpie",
   "version": "0.0.1",
-  "description": "",
-  "keywords": "",
-  "license": "",
-  "author": "",
+  "keywords": [],
+  "license": "MIT",
+  "author": "Sam",
   "scripts": {
     "build": "parcel build index.html",
     "dev": "parcel index.html --open",
@@ -13,5 +12,23 @@
   },
   "devDependencies": {
     "parcel-bundler": "^1.12.4"
-  }
+  },
+  "dependencies": {
+    "html5-qrcode": "^1.2.4",
+    "moment": "^2.29.1",
+    "quagga": "^0.12.1"
+  },
+  "main": "main.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sam32123/ahpie.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sam32123/ahpie/issues"
+  },
+  "homepage": "https://github.com/sam32123/ahpie#readme",
+  "description": ""
 }

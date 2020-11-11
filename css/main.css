@@ -15,8 +15,12 @@ html {
   color: #222;
   font-size: 1em;
   line-height: 1.4;
+
 }
 
+body {
+   background-color: #FFFFFF;
+}
 /*
  * Remove text-shadow in selection highlight:
  * https://twitter.com/miketaylr/status/12228805301
@@ -266,6 +270,7 @@ textarea {
 body {
   font-family: "Lato", sans-serif;
   transition: background-color .5s;
+  background-color: #EEEEEE;
 }
 
 .sidenav {
@@ -305,9 +310,14 @@ body {
 #main {
   transition: margin-left .5s;
   padding: 16px;
+  text-align: center;
 }
 
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
+}
+
+#titelding {
+  text-align: left;
 }
