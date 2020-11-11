@@ -20,7 +20,10 @@
       <link rel="stylesheet" href="css/main.css">
 
       <meta name="theme-color" content="#fafafa">
-      <script src="js/main.js" defer></script>
+      <script src="js/main.js"></script>
+      <!-- <script src="https://raw.githubusercontent.com/mebjas/html5-qrcode/master/minified/html5-qrcode.min.js"></script> -->
+      <script src="js/html5-qrcode.min.js"></script>
+      <script src="js/zoeken.js" defer></script>
     </head>
 
 <body>
@@ -28,7 +31,7 @@
 <!-- Add your site or application content here -->
 <script src="js/vendor/modernizr-3.11.2.min.js"></script>
 <script src="js/plugins.js"></script>
-<script src="js/main.js"></script>
+<!-- <script src="js/main.js"></script> -->
 
 
 <div id="mySidenav" class="sidenav">
@@ -42,7 +45,7 @@
 <div id="main">
   <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Zoeken</span>
   <div>
-    <form>
+    <!-- <form> -->
       <input type="radio" id="Handmatig" name="inputMethod" value="manual">
       <label for="manual">Hamdmatig</label><br>
       <input type="radio" id="Automatisch" name="inputMethod" value="automatic">
@@ -50,12 +53,13 @@
       <label for="product">Barcode:</label><br>
       <input type="number" id="product" name="product"><br>
       <input type="file" id="cameraInput" accept="image/*" capture="camera"><br>
-      <input type="submit" value="Submit" onclick="GetIngredient(product.value);">
+      <div id="reader"></div>
+      <!-- <input type="submit" value="Submit" onclick="GetIngredient(product.value);"> -->
+      <button onclick="getProduct(product.value);">Submit</button>
 
-    </form>
-    Ab accusamus autem eaque in inventore neque nesciunt, non odio omnis pariatur quaerat quasi, quia quisquam
-    repudiandae ullam. Ab blanditiis eum ipsa iste itaque mollitia, nemo perspiciatis rerum similique voluptas
+    <!-- </form> -->
   </div>
+  <div id="cart"></div>
 </div>
 
 
