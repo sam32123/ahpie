@@ -81,21 +81,21 @@ const searchRecipe = async () => {
 
 	const div = document.createElement("div");
 	for (let recipe of recipes) {
-		const d = document.createElement("div");
-		const h3 = document.createElement("h3");
-		h3.innerText = recipe.name;
-		d.appendChild(h3);
-		const a = document.createElement('a');
+		const d = document.createElement("div")
+		const a = document.createElement("a");
 		a.href = recipe.url;
-		a.innerText = `Allerhande: ${recipe.name}`;
-		a.target = "_blank";
+		a.innerText = `${recipe.name}`;
 		console.log(a);
 		d.appendChild(a);
-		const img = document.createElement("img");
-		img.src = recipe.imageURL;
-		d.appendChild(img);
+		d.setAttribute("id", "thisIsARecipe");
+		d.setAttribute("class", "thisIsARecipeHisClass");
+		d.setAttribute("style", "background-image: url(" + recipe.imageURL + "); outline: 6px inset #373a40; outline-offset: 0px;");
+
 		const p = document.createElement('p');
-		
+		d.addEventListener("click", () => {
+			window.open(recipe.url, "_blank");
+		});
+
 		for (let ingredient of recipe.ingredients) {
 			let pIngredient = document.createElement('p');
 			pIngredient.innerText = ingredient;
@@ -149,3 +149,4 @@ document.getElementById("Automatisch").addEventListener('change', ev => {
 	document.getElementById("cameraInput").hidden = false;
 	document.getElementById("product").hidden = true;
 });
+
