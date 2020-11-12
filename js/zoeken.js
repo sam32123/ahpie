@@ -52,20 +52,80 @@ const searchRecipe = async () => {
 	for (let product of getCart()) {
 		ingredients.push(product.subCategory);
 	}
-	console.log(ingredients);
 	const resp = await (await (await fetch("http://fs.panictriggers.xyz:7070/api/v1/recipe/search", {
 		method: 'POST',
 		body: JSON.stringify({
 			'ingredients': ingredients
 		})
 	})).json());
-	console.log(resp);
+	const recipeIDs = [];
+	for (let r of resp) {
+		let found = false;
+		for (let id of recipeIDs) {
+			if (id === r.recipeID) {
+				found = true;
+			}
+		}
+		if (!found) {
+			recipeIDs.push(r.recipeID);
+		}
+	}
+
+	const recipes = [];
+	
+	// Get the recipes from the server
+	for (let rID of recipeIDs) {
+		const recipe = await (await (await fetch("http://fs.panictriggers.xyz:7070/api/v1/recipe?recipe=" + rID)).json());
+		recipes.push(recipe);
+	}
+
+	const div = document.createElement("div");
+	for (let recipe of recipes) {
+		const d = document.createElement("div");
+		const h3 = document.createElement("h3");
+		h3.innerText = recipe.name;
+		d.appendChild(h3);
+		const a = document.createElement('a');
+		a.href = recipe.url;
+		a.innerText = `Allerhande: ${recipe.name}`;
+		a.target = "_blank";
+		console.log(a);
+		d.appendChild(a);
+		const img = document.createElement("img");
+		img.src = recipe.imageURL;
+		d.appendChild(img);
+		const p = document.createElement('p');
+		
+		for (let ingredient of recipe.ingredients) {
+			let pIngredient = document.createElement('p');
+			pIngredient.innerText = ingredient;
+			p.appendChild(pIngredient);
+		}
+		d.appendChild(p);
+		div.appendChild(d);
+	}
+
+	document.getElementById("cart").hidden = true;
+	document.getElementById("recipes").appendChild(div);
 }
   
 (() => {
 	document.getElementById("cameraInput").hidden = false;
 	document.getElementById("product").hidden = true;
 	document.getElementById("Automatisch").click();
+
+
+	barcode.config.start = 0.1;
+	barcode.config.end = 0.9;
+	barcode.config.video = '#barcodevideo';
+	barcode.config.canvas = '#barcodecanvas';
+	barcode.config.canvasg = '#barcodecanvasg';
+	barcode.setHandler(function(barcode) {
+		$('#result').html(barcode);
+		alert(barcode);
+	});
+	barcode.init();
+
 
 	if (getCart() === null) {
 		localStorage.setItem('cart', JSON.stringify([]));

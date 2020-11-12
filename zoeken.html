@@ -24,6 +24,8 @@
       <!-- <script src="https://raw.githubusercontent.com/mebjas/html5-qrcode/master/minified/html5-qrcode.min.js"></script> -->
       <script src="js/html5-qrcode.min.js"></script>
       <script src="js/zoeken.js" defer></script>
+      <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/barcode.js"></script>
     </head>
 
 <body>
@@ -61,7 +63,16 @@
 
     <!-- </form> -->
   </div>
+  <button onclick="searchRecipe();">Zoek voor recepten</button>
   <div id="cart"></div>
+  <div id="recipes"></div>
+
+  <div id="barcode">
+    <video id="barcodevideo" autoplay></video>
+    <canvas id="barcodecanvasg" ></canvas>
+  </div>
+  <canvas id="barcodecanvas" ></canvas>
+  <div id="result"></div>
 </div>
 
 
