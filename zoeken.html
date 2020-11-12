@@ -14,7 +14,6 @@
 
       <link rel="manifest" href="site.webmanifest">
       <link rel="apple-touch-icon" href="icon.png">
-      <!-- Place favicon.ico in the root directory -->
 
       <link rel="stylesheet" href="css/normalize.css">
       <link rel="stylesheet" href="css/main.css">
@@ -22,14 +21,10 @@
       <meta name="theme-color" content="#fafafa">
       <script src="js/main.js"></script>
       <script src="js/zoeken.js" defer></script>
+      <script src="js/vendor/modernizr-3.11.2.min.js"></script>
+      <script src="js/plugins.js"></script>
     </head>
-
 <body>
-
-<!-- Add your site or application content here -->
-<script src="js/vendor/modernizr-3.11.2.min.js"></script>
-<script src="js/plugins.js"></script>
-<!-- <script src="js/main.js"></script> -->
 
 
 <div id="mySidenav" class="sidenav">
@@ -45,17 +40,13 @@
   <span style="font-size:30px;cursor:pointer;color:#373a40" onclick="openNav()">&#9776; Zoeken</span>
   </div>
   <div>
-    <!-- <form> -->
       <label for="product">Barcode:</label><br>
       <input type="number" id="product" name="product"><br>
       <div id="reader"></div>
-      <!-- <input type="submit" value="Submit" onclick="GetIngredient(product.value);"> -->
       <button onclick="getProduct(product.value);">Voeg ingedient toe aan ingredientenlijst</button>
       <button onclick="clearCart();">Verwijder ingredientenlijst</button>
-
-    <!-- </form> -->
+      <button onclick="searchRecipe();">Zoek naar recepten</button><br><br>
   </div>
-  <button onclick="searchRecipe();">Zoek voor recepten</button><br><br>
   <div id="cart"></div>
   <div id="recipes"></div>
 </div>

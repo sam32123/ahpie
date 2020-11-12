@@ -114,10 +114,6 @@ const searchRecipe = async () => {
 }
   
 (() => {
-	// document.getElementById("cameraInput").hidden = false;
-	// document.getElementById("product").hidden = true;
-	// document.getElementById("Automatisch").click();
-
 	if (getCart() === null) {
 		localStorage.setItem('cart', JSON.stringify([]));
 	} else {
