@@ -50,7 +50,11 @@ const getProduct = async (barcode) => {
 const searchRecipe = async () => {
 	const ingredients = [];
 	for (let product of getCart()) {
-		ingredients.push(product.subCategory);
+		let x = product.subCategory.replace(/\(.*\)/, '').replace('(', '').replace(')', '');
+		if (x[x.length - 1] == ' ') {
+			x = x.slice(0, -1);
+		}
+		ingredients.push(x);
 	}
 	const resp = await (await (await fetch("http://fs.panictriggers.xyz:7070/api/v1/recipe/search", {
 		method: 'POST',
@@ -110,22 +114,9 @@ const searchRecipe = async () => {
 }
   
 (() => {
-	document.getElementById("cameraInput").hidden = false;
-	document.getElementById("product").hidden = true;
-	document.getElementById("Automatisch").click();
-
-
-	barcode.config.start = 0.1;
-	barcode.config.end = 0.9;
-	barcode.config.video = '#barcodevideo';
-	barcode.config.canvas = '#barcodecanvas';
-	barcode.config.canvasg = '#barcodecanvasg';
-	barcode.setHandler(function(barcode) {
-		$('#result').html(barcode);
-		alert(barcode);
-	});
-	barcode.init();
-
+	// document.getElementById("cameraInput").hidden = false;
+	// document.getElementById("product").hidden = true;
+	// document.getElementById("Automatisch").click();
 
 	if (getCart() === null) {
 		localStorage.setItem('cart', JSON.stringify([]));
@@ -138,15 +129,7 @@ const searchRecipe = async () => {
 	}
  })();
   
-document.getElementById("Handmatig").addEventListener('change', ev => {
-	console.log('Handmatig!');
-	document.getElementById("cameraInput").hidden = true;
-	document.getElementById("product").hidden = false;
-});
-  
-document.getElementById("Automatisch").addEventListener('change', ev => {
-	console.log('Automatisch!');
-	document.getElementById("cameraInput").hidden = false;
-	document.getElementById("product").hidden = true;
-});
-
+const clearCart = () => {
+	localStorage.setItem('cart', JSON.stringify([]));
+	document.getElementById("cart").innerHTML = '';
+}
