@@ -39,7 +39,7 @@ const getProduct = async (barcode) => {
 };
   
  const getProductFromServer = async (barcode) => {
-	const resp = await (await (await fetch("http://fs.panictriggers.xyz:7070/api/v1/product?product=" + barcode)).json());
+	const resp = await (await (await fetch("http://foodfinder.panictriggers.xyz:7070/api/v1/product?product=" + barcode)).json());
 	if (resp.title.length === 0) {
 		return null;
 	}
@@ -56,7 +56,7 @@ const searchRecipe = async () => {
 		}
 		ingredients.push(x);
 	}
-	const resp = await (await (await fetch("http://fs.panictriggers.xyz:7070/api/v1/recipe/search", {
+	const resp = await (await (await fetch("http://foodfinder.panictriggers.xyz:7070/api/v1/recipe/search", {
 		method: 'POST',
 		body: JSON.stringify({
 			'ingredients': ingredients
@@ -79,7 +79,7 @@ const searchRecipe = async () => {
 	
 	// Get the recipes from the server
 	for (let rID of recipeIDs) {
-		const recipe = await (await (await fetch("http://fs.panictriggers.xyz:7070/api/v1/recipe?recipe=" + rID)).json());
+		const recipe = await (await (await fetch("http://foodfinder.panictriggers.xyz:7070/api/v1/recipe?recipe=" + rID)).json());
 		recipes.push(recipe);
 	}
 
